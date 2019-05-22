@@ -1,0 +1,17 @@
+@startuml name
+(*) -->"
+{{
+salt
+{
+ソウルライブバンド管理アプリ
+[ライブメンテナンス]
+ライブ|日程|''
+soul live vol.12|A|[選択]
+soul live vol.12|B|[選択]
+soul live vol.12|C|[選択]
+soul live vol.12|final|[選択]
+soulmates × HomeGround合同ライブ|''|[選択]
+}
+}}
+"
+@enduml
