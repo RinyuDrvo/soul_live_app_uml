@@ -3,15 +3,44 @@
 {{
 salt
 {
-ソウルライブバンド管理アプリ
+<b>ソウルライブバンド管理アプリ
 [ライブメンテナンス]
-ライブ|日程|''
+ライブ|日程|""
 soul live vol.12|A|[選択]
 soul live vol.12|B|[選択]
 soul live vol.12|C|[選択]
 soul live vol.12|final|[選択]
-soulmates × HomeGround合同ライブ|''|[選択]
+soulmates × HomeGround合同ライブ|""|[選択]
 }
 }}
-"
+" as home
+
+home -down->"
+{{
+    salt
+    {
+        <b>出演バンド
+        soul live vol.12 A 日程
+        出演順|バンド名|メンバー|スケジュール|""
+        1|「お、今度の飯はししゃもか、母さん」|Vo.かとまり Gt.荒井 Ba.のぶ Dr.三上|11:50~12:20|[削除][変更]
+        2|麦南|Vo.サカタニ Gt.のぶ Gt.たなしゅん Ba.おか Key.めぐ Dr.りょう|12:20~12:45|[削除][変更]
+        [バンド追加]
+    }
+}}
+" as show_band
+
+show_band -down->"
+{{
+    salt
+    {
+        <b>バンド追加
+        soul live vol.12 A 日程
+        バンド名|"インストもん"
+        メンバー|"Gt.高橋 Ba.おおたけ Key.あつし Dr.こんどう"
+        スケジュール|"12:50~13:20"
+        出演順|"3"
+        [追加]
+    }
+}}
+" as insert_band
 @enduml
