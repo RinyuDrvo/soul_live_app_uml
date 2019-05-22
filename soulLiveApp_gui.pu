@@ -1,17 +1,17 @@
 @startuml name
 (*) -->"
 {{
-salt
-{
-<b>ソウルライブバンド管理アプリ
-[ライブメンテナンス]
-ライブ|日程|""
-soul live vol.12|A|[選択]
-soul live vol.12|B|[選択]
-soul live vol.12|C|[選択]
-soul live vol.12|final|[選択]
-soulmates × HomeGround合同ライブ|""|[選択]
-}
+    salt
+    {
+        <b>ソウルライブバンド管理アプリ
+        ライブ|日程|""
+        soul live vol.12|A|[選択]
+        soul live vol.12|B|[選択]
+        soul live vol.12|C|[選択]
+        soul live vol.12|final|[選択]
+        soulmates × HomeGround合同ライブ|""|[選択]
+        [ライブメンテナンス]
+    }
 }}
 " as home
 
@@ -43,4 +43,51 @@ show_band -down->"
     }
 }}
 " as insert_band
+
+insert_band -down->"
+{{
+    salt
+    {
+        <b>バンド追加完了
+        ライブ|soul live vol.12
+        日程|A
+        バンド名|インストもん
+        メンバー|Gt.高橋 Ba.おおたけ Key.あつし Dr.こんどう
+        スケジュール|12:50~13:20
+        出演順|3
+        [戻る]
+    }
+}}
+" as succsess_insert_band
+
+insert_band -right->"
+{{
+    salt
+    {
+        <b>バンド追加エラー
+        開発者にご連絡下さい。
+        mail:alchemist.drumvocal@gmail.com
+        [戻る]
+    }
+}}
+" as error_insert_band
+
+home -right->"
+{{
+    salt
+    {
+        ソウルライブバンド管理アプリ
+        <b>ライブ メンテナンス
+        ライブID|ライブ名|日程|""
+        2019SMA|soul live vol.12|A|[削除]
+        2019SMB|soul live vol.12|B|[削除]
+        2019SMC|soul live vol.12|C|[削除]
+        2019SMF|soul live vol.12|final|[削除]
+        2019HG1|soulmates×HomeGround合同ライブ|""|[削除]
+        2019WNA|soul live vol.13|A|[削除]
+        [ライブ追加]
+        [戻る]
+    }
+}}
+" as live_mentenance
 @enduml
