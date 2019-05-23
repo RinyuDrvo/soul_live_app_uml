@@ -90,4 +90,13 @@ home -right->"
     }
 }}
 " as live_mentenance
+
+live_mentenance ->"
+{{
+    salt
+    {
+        
+    }
+}}
+" as insert_live
 @enduml
