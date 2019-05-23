@@ -4,13 +4,14 @@
     salt
     {
         <b>ソウルライブバンド管理アプリ
-        ライブ|日程|""
+        ライブ|日程|出演バンド表示
         soul live vol.12|A|[選択]
         soul live vol.12|B|[選択]
         soul live vol.12|C|[選択]
         soul live vol.12|final|[選択]
         soulmates × HomeGround合同ライブ|""|[選択]
         [ライブメンテナンス]
+        [バンドメンテナンス]
     }
 }}
 " as home
@@ -21,10 +22,10 @@ home -down->"
     {
         <b>出演バンド
         soul live vol.12 A 日程
-        出演順|バンド名|メンバー|スケジュール|""
-        1|「お、今度の飯はししゃもか、母さん」|Vo.かとまり Gt.荒井 Ba.のぶ Dr.三上|11:50~12:20|[削除][変更]
-        2|麦南|Vo.サカタニ Gt.のぶ Gt.たなしゅん Ba.おか Key.めぐ Dr.りょう|12:20~12:45|[削除][変更]
-        [バンド追加]
+        出演順|バンド名|メンバー|スケジュール|出演キャンセル|変更
+        1|「お、今度の飯はししゃもか、母さん」|かとまり 荒井 のぶ 三上|11:50~12:20|[削除]|[変更]
+        2|麦南|サカタニ のぶ たなしゅん おか めぐ りょう|12:20~12:45|[削除]|[変更]
+        [出演バンド追加]
     }
 }}
 " as show_band
@@ -33,44 +34,55 @@ show_band -down->"
 {{
     salt
     {
-        <b>バンド追加
+        <b>出演バンド追加
         soul live vol.12 A 日程
-        バンド名|"インストもん"
-        メンバー|"Gt.高橋 Ba.おおたけ Key.あつし Dr.こんどう"
-        スケジュール|"12:50~13:20"
+        バンドID|"3"
         出演順|"3"
+        出演時間|"12:50~13:20"
         [追加]
     }
 }}
-" as insert_band
+" as insert_band_for_live
 
-insert_band -down->"
+insert_band_for_live -down->"
 {{
     salt
     {
-        <b>バンド追加完了
-        ライブ|soul live vol.12
-        日程|A
+        <b>出演バンド追加完了
         バンド名|インストもん
-        メンバー|Gt.高橋 Ba.おおたけ Key.あつし Dr.こんどう
-        スケジュール|12:50~13:20
         出演順|3
+        出演時間|12:50~13:20
         [戻る]
     }
 }}
-" as succsess_insert_band
+" as succsess_insert_bandfor_live
 
-insert_band -right->"
+show_band -left->"
 {{
     salt
     {
-        <b>バンド追加エラー
-        開発者にご連絡下さい。
-        mail:alchemist.drumvocal@gmail.com
+        <b>出演バンド変更
+        soul live vol.12 A 日程
+        バンドID|"3"
+        出演順|"3"
+        出演時間|"12:50~13:20"
+        [追加]
+    }
+}}
+" as update_band_for_live
+
+update_band_for_live -down->"
+{{
+    salt
+    {
+        <b>出演バンド追加完了
+        バンド名|インストもん
+        出演順|3
+        出演時間|12:50~13:20
         [戻る]
     }
 }}
-" as error_insert_band
+" as succsess_update_band_for_live
 
 home -right->"
 {{
@@ -78,13 +90,12 @@ home -right->"
     {
         ソウルライブバンド管理アプリ
         <b>ライブ メンテナンス
-        ライブID|ライブ名|日程|""
-        2019SMA|soul live vol.12|A|[削除]
-        2019SMB|soul live vol.12|B|[削除]
-        2019SMC|soul live vol.12|C|[削除]
-        2019SMF|soul live vol.12|final|[削除]
-        2019HG1|soulmates×HomeGround合同ライブ|""|[削除]
-        2019WNA|soul live vol.13|A|[削除]
+        ライブ名|日程|""
+        soul live vol.12|A|[削除]
+        soul live vol.12|B|[削除]
+        soul live vol.12|C|[削除]
+        soul live vol.12|final|[削除]
+        soulmates×HomeGround合同ライブ|""|[削除]
         [ライブ追加]
         [戻る]
     }
@@ -95,7 +106,10 @@ live_mentenance ->"
 {{
     salt
     {
-        
+        <b>ライブ追加
+        ライブ名|"soul live vol.13"
+        日程|"B"
+        [追加]
     }
 }}
 " as insert_live
