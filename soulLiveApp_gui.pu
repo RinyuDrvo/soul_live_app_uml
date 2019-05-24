@@ -11,7 +11,7 @@
         soul live vol.12 final|[選択]
         soulmates × HomeGround合同ライブ|[選択]
         [ライブメンテナンス]
-        [バンドメンテナンス]
+        [メンバーメンテナンス]
     }
 }}
 " as home
@@ -68,7 +68,7 @@ show_band -right->"
         [追加]
     }
 }}
-" as insert_member
+" as formation_member
 
 home -right->"
 {{
@@ -76,12 +76,12 @@ home -right->"
     {
         ソウルライブバンド管理アプリ
         <b>ライブ メンテナンス
-        ライブ名|日程|""
-        soul live vol.12|A|[削除]
-        soul live vol.12|B|[削除]
-        soul live vol.12|C|[削除]
-        soul live vol.12|final|[削除]
-        soulmates×HomeGround合同ライブ|""|[削除]
+        ライブ名|""
+        soul live vol.12 A|[削除]
+        soul live vol.12 B|[削除]
+        soul live vol.12 C|[削除]
+        soul live vol.12 final|[削除]
+        soulmates×HomeGround合同ライブ|[削除]
         [ライブ追加]
         [戻る]
     }
@@ -93,10 +93,36 @@ live_mentenance ->"
     salt
     {
         <b>ライブ追加
-        ライブ名|"soul live vol.13"
-        日程|"B"
+        ライブ名|"soul live vol.13 A"
         [追加]
     }
 }}
 " as insert_live
+
+home -left->"
+{{
+    salt
+    {
+        <b>メンバー一覧
+        メンバーID|名前|""
+        2019001|かとまり|[削除]
+        2019002|荒井|[削除]
+        2019003|のぶ|[削除]
+        [メンバー追加]
+    }
+}}
+" as mentenance_member
+
+mentenance_member -left->"
+{{
+    salt
+    {
+        <b>メンバー追加
+        メンバーID|"20190004"
+        名前|"三上"
+        [追加]
+    }
+}}
+" as insert_member
+
 @enduml
