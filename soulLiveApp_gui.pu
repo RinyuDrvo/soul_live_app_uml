@@ -4,12 +4,12 @@
     salt
     {
         <b>ソウルライブバンド管理アプリ
-        ライブ|日程|出演バンド表示
-        soul live vol.12|A|[選択]
-        soul live vol.12|B|[選択]
-        soul live vol.12|C|[選択]
-        soul live vol.12|final|[選択]
-        soulmates × HomeGround合同ライブ|""|[選択]
+        ライブ|出演バンド表示
+        soul live vol.12 A|[選択]
+        soul live vol.12 B|[選択]
+        soul live vol.12 C|[選択]
+        soul live vol.12 final|[選択]
+        soulmates × HomeGround合同ライブ|[選択]
         [ライブメンテナンス]
         [バンドメンテナンス]
     }
@@ -21,10 +21,10 @@ home -down->"
     salt
     {
         <b>出演バンド
-        soul live vol.12 A 日程
-        出演順|バンド名|メンバー|スケジュール|出演キャンセル|変更
-        1|「お、今度の飯はししゃもか、母さん」|かとまり 荒井 のぶ 三上|11:50~12:20|[削除]|[変更]
-        2|麦南|サカタニ のぶ たなしゅん おか めぐ りょう|12:20~12:45|[削除]|[変更]
+        soul live vol.12 A
+        出演順|バンドID|バンド名|メンバー|スケジュール|""|""
+        1|B001|「お、今度の飯はししゃもか、母さん」|かとまり 荒井 のぶ 三上|11:50~12:20|[削除]|[変更]|[メンバー追加]
+        2|B002|麦南|サカタニ のぶ たなしゅん おか めぐ りょう|12:20~12:45|[削除]|[変更]|[メンバー追加]
         [出演バンド追加]
     }
 }}
@@ -36,7 +36,8 @@ show_band -down->"
     {
         <b>出演バンド追加
         soul live vol.12 A 日程
-        バンドID|"3"
+        バンドID|"B003"
+        バンド名|"インストもん"
         出演順|"3"
         出演時間|"12:50~13:20"
         [追加]
@@ -44,26 +45,13 @@ show_band -down->"
 }}
 " as insert_band_for_live
 
-insert_band_for_live -down->"
-{{
-    salt
-    {
-        <b>出演バンド追加完了
-        バンド名|インストもん
-        出演順|3
-        出演時間|12:50~13:20
-        [戻る]
-    }
-}}
-" as succsess_insert_bandfor_live
-
 show_band -left->"
 {{
     salt
     {
-        <b>出演バンド変更
+        <b>バンド登録情報変更
         soul live vol.12 A 日程
-        バンドID|"3"
+        バンド名|"インスト侍"
         出演順|"3"
         出演時間|"12:50~13:20"
         [追加]
@@ -71,18 +59,16 @@ show_band -left->"
 }}
 " as update_band_for_live
 
-update_band_for_live -down->"
+show_band -right->"
 {{
     salt
     {
-        <b>出演バンド追加完了
-        バンド名|インストもん
-        出演順|3
-        出演時間|12:50~13:20
-        [戻る]
+        <b>バンド メンバー追加
+        メンバーID|"2019001"
+        [追加]
     }
 }}
-" as succsess_update_band_for_live
+" as insert_member
 
 home -right->"
 {{
