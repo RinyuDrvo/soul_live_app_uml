@@ -76,12 +76,12 @@ home -right->"
     {
         ソウルライブバンド管理アプリ
         <b>ライブ メンテナンス
-        ライブ名|""
-        soul live vol.12 A|[削除]
-        soul live vol.12 B|[削除]
-        soul live vol.12 C|[削除]
-        soul live vol.12 final|[削除]
-        soulmates×HomeGround合同ライブ|[削除]
+        ライブID|ライブ名|""
+        201901A|soul live vol.12 A|[削除]
+        201901B|soul live vol.12 B|[削除]
+        201901C|soul live vol.12 C|[削除]
+        201901F|soul live vol.12 final|[削除]
+        201902H|soulmates×HomeGround合同ライブ|[削除]
         [ライブ追加]
         [戻る]
     }
